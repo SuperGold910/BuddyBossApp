@@ -1,0 +1,20 @@
+{
+  "name": "buddyboss-custom-code",
+  "version": "1.0.0",
+  "description": "",
+  "license": "MIT",
+  "main": "index.js",
+  "homepage": "https://buddyboss.com",
+  "summary": "Repo used to extend the BuddyBoss app using hooks",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react-native"
+  ],
+  "author": "",
+  "peerDependencies": {
+    "react-native": "0.61.5",
+    "react": "16.9.0"
+  }
+}
