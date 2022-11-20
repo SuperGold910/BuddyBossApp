@@ -1,5 +1,5 @@
 export const applyCustomCode = (externalCodeSetup: any) => {
-	externalCodeSetup.cssApi.addGlobalStyle("vc-reshare-border", {
+	externalCodeSetup.cssApi.addGlobalStyle("avatar", {
 		borderWidth: "2",
 		borderColor: "#23ff56",
 		shadowColor: "#23ff56",
