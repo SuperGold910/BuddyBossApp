@@ -141,14 +141,18 @@ const styles = StyleSheet.create({
    },
    text: {
        flex: 1
+   },
+   glowavatar: {
+		borderWidth: "2",
+		borderColor: "#23ff56",
+		shadowColor: "#23ff56",
+		shadowOpacity: 0.8,
+		shadowRadius: 2,
+		shadowOffset: {
+		height: 1,
+		width: 1
+		}
    }
 });
 
 export default ActivityHeader;
-
-//In custom_code/index.js..
-
-import ActivityHeader from "./components/ActivityHeader";
-export const applyCustomCode = externalCodeSetup => {
-  externalCodeSetup.activitiesScreenApi.setActivityHeaderComponent(props => <ActivityHeader {...props} />)
-}
