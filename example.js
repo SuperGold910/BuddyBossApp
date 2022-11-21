@@ -60,4 +60,6 @@ export const applyCustomCode = externalCodeSetup => {
 	externalCodeSetup.cssApi.addGlobalStyle("container", {
 		backgroundColor: "white"
 	});
+
+	
 };
