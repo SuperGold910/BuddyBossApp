@@ -73,6 +73,7 @@ const ActivityHeader = (props) => {
                                ? { uri: getAvatar(item.avatarUrl, 96) }
                                : require("@src/assets/img/default/default-member-img.png")
                        }
+                       style={styles.glowavatar}
                    />
                </AppTouchableOpacity>
            )}
