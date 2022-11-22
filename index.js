@@ -48,11 +48,7 @@
 // 		}
 // 	});
 // };
-
-import TopicItemWidget from "./TopicItemWidget"
+import ActivitiesItemWidget from "./ActivitiesItemWidget";
 export const applyCustomCode = externalCodeSetup => {
-
- externalCodeSetup.appPagesHooksApi.setTopicItemWidgetComponent((props) => {
-   return <TopicItemWidget {...props} />
- });
+  externalCodeSetup.appPagesHooksApi.setActivitiesItemWidgetComponent( (props) => <ActivitiesItemWidget {...props} />);
 }
