@@ -14,27 +14,18 @@ import AppAvatar from "@src/components/AppAvatar";
 import AppTouchableOpacity from "@src/components/AppTouchableOpacity";
 import { getAvatar } from "@src/utils";
 import { dateRenderer, spanRenderer } from "@src/utils/htmlRender";
-import { FontWeights } from "@src/styles/global";
 import { stripActivityTags } from "@src/utils/buddypress";
 import HTML from "react-native-render-html";
-import ActivityPrivacyButton from "@src/components/Activity/Privacy/ActivityPrivacyButton";
 const ActivityHeader = (props) => {
     const {
         user,
         item,
         global,
         colors,
-        tagsStyles,
-        attemptDeepLink,
-        showAvatar,
         style,
         textColor,
         setItemHeight = () => { },
-        onChangePrivacy,
-        privacyModalVisible,
-        contentWrapperStyle,
         avatarSize,
-        hidePrivacy
     } = props;
     const lightText = colors.descLightTextColor;
     let activityContent = item.action;
@@ -45,11 +36,6 @@ const ActivityHeader = (props) => {
     //End
     let avatarName = item?.user?.name || "";
     if (item?.user?.id === user?.id) avatarName = user.name; // user is unavailable during guest login
-    const showPrivacy =
-        !hidePrivacy &&
-        item.can_edit &&
-        (item.type === "activity_update" || item.type === "activity_comment") &&
-        item.component !== "groups";
     const onLayout = ({
         nativeEvent: {
             layout: { height }
@@ -61,7 +47,6 @@ const ActivityHeader = (props) => {
 
     return (
         <View style={[global.row, styles.header, style]}>
-            {showAvatar && (
                 <AppTouchableOpacity onPress={item.authorClick} 
                 overlayContainerStyle ={styles.userAvatar}>
                     <AppAvatar
@@ -76,19 +61,16 @@ const ActivityHeader = (props) => {
                         }
                     />
                 </AppTouchableOpacity>
-            )}
             <View
                 onLayout={onLayout}
                 style={[
                     styles.text,
-                    { marginLeft: showAvatar ? 10 : 0 },
-                    contentWrapperStyle
+                    { marginLeft:  10 },
                 ]}
             >
                 <HTML
                     classesStyles={{ "activity-to": { marginHorizontal: 3 } }}
                     tagsStyles={{
-                        ...tagsStyles,
                         rawtext: {
                             ...global.activityHtmlrawtext,
                             color: tColor
@@ -106,7 +88,6 @@ const ActivityHeader = (props) => {
                         textColor ? { color: textColor } : {}
                     )}
                     html={stripActivityTags(activityContent)}
-                    onLinkPress={attemptDeepLink(false)}
                     renderers={{
                         a: dateRenderer,
                         span: spanRenderer
@@ -117,18 +98,6 @@ const ActivityHeader = (props) => {
                     {item.dateRecorded}
                 </Text>
             </View>
-            {showPrivacy &&
-                !!item.privacy &&
-                item.privacy !== "media" && (
-                    <ActivityPrivacyButton
-                        privacyModalVisible={privacyModalVisible}
-                        privacy={item.privacy}
-                        onPress={onChangePrivacy}
-                        colors={colors}
-                        global={global}
-                        style={{ width: 18, height: 13 }}
-                    />
-                )}
         </View>
     );
 };
@@ -147,11 +116,11 @@ const styles = StyleSheet.create({
         borderWidth: "5",
         borderColor: "#23ff56",
         shadowColor: "#23ff56",
-        shadowOpacity: 0.8,
-        shadowRadius: 5,
+        shadowOpacity: 1,
+        shadowRadius: 10,
         shadowOffset: {
-            height: 3,
-            width: 3
+            height: 0,
+            width: 0
         }
     }
 });

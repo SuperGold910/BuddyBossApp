@@ -50,7 +50,6 @@
 // };
 import ActivitiesItemWidget from "./ActivitiesItemWidget";
 export const applyCustomCode = externalCodeSetup => {
-  externalCodeSetup.appPagesHooksApi.setActivitiesItemWidgetComponent( (props) => <ActivitiesItemWidget {...props} />);
   externalCodeSetup.activitiesScreenApi.setActivityHeaderComponent((props) => <ActivitiesItemWidget {...props} />)
 
    	externalCodeSetup.cssApi.addGlobalStyle("avatarStyle", {
