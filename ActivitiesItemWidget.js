@@ -62,12 +62,13 @@ const ActivityHeader = (props) => {
     return (
         <View style={[global.row, styles.header, style]}>
             {showAvatar && (
-                <AppTouchableOpacity onPress={item.authorClick}>
+                <AppTouchableOpacity onPress={item.authorClick} 
+                overlayContainerStyle ={styles.userAvatar}>
                     <AppAvatar
                         userId={item.user.user_id}
                         size={avatarSize || 40}
                         name={avatarName}
-                        style={styles.userAvatar}
+                        overlayContainerStyle ={styles.userAvatar}
                         source={
                             item.avatarUrl
                                 ? { uri: getAvatar(item.avatarUrl, 96) }
