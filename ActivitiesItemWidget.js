@@ -136,7 +136,7 @@ const styles = StyleSheet.create({
 		flex: 1
 	},
 	avatarContainer: {
-		borderWidth: "10",
+		borderWidth: 10,
 		borderColor: "#23ff56",
 		shadowColor: "#23ff56",
 		shadowOpacity: 1,
