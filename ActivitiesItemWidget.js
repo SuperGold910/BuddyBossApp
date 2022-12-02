@@ -136,23 +136,23 @@ const styles = StyleSheet.create({
 		flex: 1
 	},
 	avatarContainer: {
-		borderWidth: 10,
+		borderWidth: 5,
+		borderRadius: 30,
 		borderColor: "#23ff56",
 		shadowColor: "#23ff56",
 		shadowOpacity: 1,
-		shadowRadius: 10,
+		shadowRadius: 5,
 		shadowOffset: {
-			height: 1,
-			width: 1
+			height: 0,
+			width: 0
 		},
-        elevation: 23,
-		borderRadius: 30,
+        elevation: 5,
 		width: 50,
 		height: 50,
 	},
     avatar: {
-        marginTop: 5,
-        marginLeft: 5
+        marginTop: 0,
+        marginLeft: 0
     }
 });
 
